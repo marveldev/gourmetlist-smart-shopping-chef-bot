@@ -20,7 +20,7 @@
   <header class="bg-white border-b border-gray-200 h-16 flex-shrink-0 z-20">
     <div class="h-full px-4 md:px-6 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 group">
-        <div class="text-orange-500 w-6 h-6 group-hover:scale-110 transition-transform">
+        <div class="text-[#8c3f6d] w-6 h-6 group-hover:scale-110 transition-transform">
              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
         </div>
         <span class="font-bold text-gray-900 group-hover:text-orange-600 transition-colors">GourmetList</span>
@@ -63,18 +63,29 @@
           <button class="filter-btn text-gray-600 hover:bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium transition-colors" data-filter="shared">Shared</button>
         </div>
         <div class="flex items-center gap-3 flex-wrap">
-          <div class="flex flex-col gap-1">
-            <button id="open-chef-btn" disabled class="text-xs font-semibold text-white bg-orange-400 px-3 py-1 rounded-lg transition-colors flex items-center gap-1 opacity-50 cursor-not-allowed">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.12 3-2.5S13.657 6 12 6s-3 1.12-3 2.5S10.343 11 12 11z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 20v-1a6 6 0 0112 0v1"/></svg>
-              Chef Bot
-            </button>
-            <div class="flex items-center gap-2 text-xs text-gray-500">
-              <div class="w-24 h-1 bg-gray-200 rounded-full overflow-hidden">
-                <div id="ai-progress-bar" class="h-full bg-orange-500 transition-all duration-300" style="width: 0%"></div>
-              </div>
-              <span id="ai-status-text">Loading Chef Bot... 0%</span>
-            </div>
-          </div>
+     <div class="flex flex-col items-start gap-2 w-24">
+  <!-- Button -->
+  <button 
+    id="open-chef-btn" 
+    disabled 
+    class="w-full text-xs font-semibold text-white bg-orange-400 px-3 py-1 rounded-lg transition-colors flex items-center justify-center gap-1 opacity-50 cursor-not-allowed"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.12 3-2.5S13.657 6 12 6s-3 1.12-3 2.5S10.343 11 12 11z"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 20v-1a6 6 0 0112 0v1"/>
+    </svg>
+    Chef Bot
+  </button>
+
+  <!-- Progress Bar + Status -->
+  <div class="flex flex-col w-full gap-1 text-xs">
+    <div class="w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+      <div id="ai-progress-bar" class="h-full bg-orange-500 transition-all duration-300" style="width: 0%"></div>
+    </div>
+    <span id="ai-status-text" class="text-gray-500 text-center">Loading Chef Bot... 0%</span>
+  </div>
+</div>
+
           <button id="smart-sort-btn" class="text-xs font-semibold text-orange-600 bg-orange-50 hover:bg-orange-100 px-3 py-1 rounded-lg transition-colors">Smart Sort</button>
           <span id="stats-text" class="text-xs font-bold text-gray-400 uppercase tracking-wider">0/0 done</span>
         </div>

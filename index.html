@@ -1,199 +1,447 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GourmetList - The Smart Shopping Assistant</title>
-  <script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style type="text/tailwindcss" data-teda="tailwind-apply">
-    @layer components {
-      .btn-primary { @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-orange-500 rounded-full hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 shadow-lg hover:shadow-xl hover:-translate-y-1; }
-      .btn-outline { @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold text-gray-900 transition-all duration-200 bg-transparent border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900; }
-    }
-  </style>
-</head>
-<body class="bg-[#fcfbf9] overflow-x-hidden">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>GourmetList - The Smart Shopping Assistant</title>
+		<script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="module" src="./register.js"></script>
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet" />
 
-  <!-- Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#fcfbf9]/80 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <div class="text-orange-500 w-8 h-8">
-             <!-- Inline SVG Logo -->
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.38 0 2.5-1.12 2.5-2.5S12.38 12 11 12c-1.38 0-2.5 1.12-2.5 2.5z" transform="translate(5 -5)"/><path d="M16.5 7.5L13 11"/><path d="M7 16l4-4"/></svg>
-        </div>
-        <span class="text-xl font-bold tracking-tight text-gray-900">GourmetList</span>
-      </div>
-      <a href="app.html" class="text-sm font-semibold text-gray-600 hover:text-orange-500 transition-colors">Launch App</a>
-    </div>
-  </nav>
+		<style type="text/tailwindcss" data-teda="tailwind-apply">
+			@layer components {
+				.btn-primary {
+					@apply bg-gradient-to-r from-[#8c3f6d] to-[#723258] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:from-[#723258] hover:to-[#421d34] hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+				}
+				.btn-outline {
+					@apply border-2 border-[#8c3f6d] text-[#723258] px-8 py-4 rounded-full font-bold hover:bg-[#f8e9f2] transition-all duration-300;
+				}
+				.hero-text {
+					@apply text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 leading-tight;
+				}
+			}
+		</style>
+		<style>
+			body {
+				font-family: "Plus Jakarta Sans", sans-serif;
+			}
+		</style>
+	</head>
+	<body class="bg-[#fcfbf9] overflow-x-hidden">
+		<!-- Nav -->
+		<nav
+			class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#fcfbf9]/80 backdrop-blur-md border-b border-gray-100">
+			<div
+				class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+				<div class="flex items-center gap-2">
+					<div class="text-[#8c3f6d] w-8 h-8">
+						<!-- Inline SVG Logo -->
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round">
+							<path
+								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+							<path
+								d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.38 0 2.5-1.12 2.5-2.5S12.38 12 11 12c-1.38 0-2.5 1.12-2.5 2.5z"
+								transform="translate(5 -5)" />
+							<path d="M16.5 7.5L13 11" />
+							<path d="M7 16l4-4" />
+						</svg>
+					</div>
+					<span class="text-xl font-bold tracking-tight text-gray-900"
+						>GourmetList</span
+					>
+				</div>
+		<div class="flex md:gap-6 gap-2 items-center">
+					<!-- Theme toggle -->
+					<button
+						id="theme-toggle"
+						type="button"
+						aria-label="Toggle theme"
+						class="inline-flex items-center justify-center w-10 h-10 rounded-full text-gray-700 bg-[#723258] transition-colors">
+						<span id="theme-toggle-icon">🌙</span>
+					</button>
+					<a
+						href="signin.html"
+						id="sign-in-button"
+						class="hidden px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#8c3f6d] to-[#723258] shadow-md shadow-fuchsia-900/20 hover:from-[#723258] hover:to-[#421d34] hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500"
+						>Sign In</a
+					>
+					<a
+						href="createAccount.html"
+						id="create-account-button"
+						type="button"
+						class="hidden px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#8c3f6d] to-[#723258] shadow-md shadow-fuchsia-900/20 hover:from-[#723258] hover:to-[#421d34] hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500">
+						Create Account
+					</a>
+					<button
+						id="sign-out-button"
+						type="button"
+						class="hidden px-4 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#8c3f6d] to-[#723258] shadow-md shadow-fuchsia-900/20 hover:from-[#723258] hover:to-[#421d34] hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500">
+						Sign Out
+					</button>
+					<a
+						href="app.html"
+						id="launch-app-button"
+						class="hidden bg-fuchsia-600 text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-fuchsia-700 transition-colors shadow-lg shadow-fuchsia-900/20">
+						Launch App
+					</a>
+				</div>
+		</nav>
 
-  <!-- Hero Section -->
-  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-    <!-- Abstract Background Blobs -->
-    <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-orange-100/50 rounded-full blur-3xl -z-10"></div>
-    <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-green-100/50 rounded-full blur-3xl -z-10"></div>
+		<!-- Hero Section (Asymmetric) -->
+		<section class="relative pt-28 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+			<!-- Background Blobs -->
+			<div
+				class="absolute top-0 right-0 w-[800px] h-[800px] bg-fuchsia-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 z-0"></div>
+			<div
+				class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-fuchsia-100/50 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 z-0"></div>
 
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col items-center text-center">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 mb-8 max-w-4xl leading-[1.1] animate-float" style="animation-duration: 8s;">
-          Your Groceries,
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">Intelligently</span>
-          Sorted.
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mb-12 leading-relaxed">
-          Stop writing dumb lists. Meet the shopping companion that knows what you want to cook before you do.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <a href="app.html" class="btn-primary">
-            Start Your List
-            <svg class="ml-2 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-          </a>
-          <a href="#features" class="btn-outline">
-            See How It Works
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+			<div class="container mx-auto px-6 relative z-10">
+				<div class="flex flex-col lg:flex-row items-center gap-16">
+					<div class="lg:w-[55%]">
+						<h1 class="hero-text mb-8">
+							Shopping lists that
+							<span
+								class="text-transparent bg-clip-text bg-gradient-to-r from-[#8c3f6d] to-[#723258]"
+								>actually work</span
+							>.
+						</h1>
+						<p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg">
+							Stop sending texts. Stop forgetting milk. Basket is the
+							local-first, AI-powered list that keeps your household in perfect
+							sync.
+						</p>
+						<div class="flex flex-col sm:flex-row gap-4">
+							<button
+								type="button"
+								id="start-shopping-button"
+								class="btn-primary text-center flex items-center justify-center gap-2">
+								Start Shopping Free
+								<svg
+									class="w-5 h-5"
+									fill="none"
+									stroke="currentColor"
+									viewBox="0 0 24 24">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M17 8l4 4m0 0l-4 4m4-4H3" />
+								</svg>
+							</button>
+							<a href="#features" class="btn-outline text-center"
+								>See Features</a
+							>
+						</div>
+					</div>
 
-  <!-- Marquee -->
-  <div class="w-full bg-gray-900 py-6 overflow-hidden">
-    <div class="flex gap-12 whitespace-nowrap animate-marquee text-white/80 font-mono text-sm uppercase tracking-widest">
-       <!-- Handled via CSS usually, but creating static content for buildless simplicity -->
-       <span>• Smart Suggestions</span>
-       <span>• AI Chef Bot</span>
-       <span>• Zero Cloud Sync (Privacy First)</span>
-       <span>• Instant Recipes</span>
-       <span>• Auto-Sorting</span>
-       <span>• Smart Suggestions</span>
-       <span>• AI Chef Bot</span>
-       <span>• Zero Cloud Sync</span>
-       <span>• Instant Recipes</span>
-       <span>• Auto-Sorting</span>
-       <span>• Smart Suggestions</span>
-       <span>• AI Chef Bot</span>
-       <span>• Zero Cloud Sync</span>
-       <span>• Instant Recipes</span>
-       <span>• Auto-Sorting</span>
-    </div>
-  </div>
+					<div class="lg:w-[45%] relative">
+						<!-- Decorative visual (CSS Only App Preview) -->
+						<div
+							class="relative bg-white rounded-[2.5rem] shadow-2xl shadow-fuchsia-900/10 border-8 border-gray-900 overflow-hidden transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500 ease-out">
+							<div
+								class="h-6 bg-gray-900 w-full absolute top-0 left-0 z-20 flex justify-center">
+								<div class="w-20 h-4 bg-black rounded-b-xl"></div>
+							</div>
+							<div class="bg-gray-50 p-6 pt-12 h-[500px] flex flex-col">
+								<div class="flex justify-between items-end mb-6">
+									<h2 class="text-2xl font-bold text-gray-900">Groceries</h2>
+									<span
+										class="text-fuchsia-600 font-bold bg-fuchsia-100 px-3 py-1 rounded-full text-xs"
+										>Sync On</span
+									>
+								</div>
+								<!-- List Items -->
+								<div class="space-y-3">
+									<div
+										class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3 border-l-4 border-fuchsia-500">
+										<div
+											class="w-6 h-6 rounded-full border-2 border-fuchsia-500 flex items-center justify-center bg-fuchsia-500 text-white">
+											<svg
+												class="w-3 h-3"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24">
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="3"
+													d="M5 13l4 4L19 7" />
+											</svg>
+										</div>
+										<div class="flex-1">
+											<span class="line-through text-gray-400"
+												>Almond Milk</span
+											>
+										</div>
+									</div>
+									<div
+										class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3 border-l-4 border-orange-400">
+										<div
+											class="w-6 h-6 rounded-full border-2 border-gray-200"></div>
+										<div class="flex-1">
+											<span class="text-gray-800 font-medium"
+												>Avocados (3)</span
+											>
+										</div>
+										<span class="text-xs text-gray-400">Produce</span>
+									</div>
+									<div
+										class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3 border-l-4 border-blue-400">
+										<div
+											class="w-6 h-6 rounded-full border-2 border-gray-200"></div>
+										<div class="flex-1">
+											<span class="text-gray-800 font-medium"
+												>Sourdough Bread</span
+											>
+										</div>
+										<span class="text-xs text-gray-400">Bakery</span>
+									</div>
+									<!-- AI Suggestion Pop -->
+									<div
+										class="mt-4 bg-fuchsia-900 rounded-xl p-4 text-white relative overflow-hidden">
+										<div
+											class="absolute -right-4 -top-4 w-16 h-16 bg-fuchsia-700 rounded-full blur-xl"></div>
+										<p
+											class="text-xs text-fuchsia-300 uppercase font-bold mb-1">
+											AI Chef Suggests
+										</p>
+										<p class="text-sm font-medium">
+											"Don't forget eggs for that avocado toast!"
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-  <!-- Feature Breakdown (Not Grid) -->
-  <section id="features" class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      
-      <!-- Feature 1 -->
-      <div class="flex flex-col lg:flex-row items-center gap-16 mb-32 reveal-on-scroll">
-        <div class="lg:w-1/2">
-           <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-[#f4f7f5] p-8 md:p-12 border border-gray-100">
-             <!-- Mock Chat UI -->
-             <div class="space-y-4">
-               <div class="flex justify-end">
-                 <div class="bg-gray-800 text-white p-3 rounded-2xl rounded-tr-none text-sm max-w-[80%]">I have tomatoes, basil, and mozzarella. What can I make?</div>
-               </div>
-               <div class="flex justify-start">
-                 <div class="bg-white border border-gray-200 text-gray-800 p-3 rounded-2xl rounded-tl-none text-sm shadow-sm max-w-[90%]">
-                   You have the perfect ingredients for a <strong class="text-orange-500">Caprese Salad</strong>! Just slice them up, drizzle with olive oil, and enjoy. Would you like the full recipe?
-                 </div>
-               </div>
-             </div>
-           </div>
-        </div>
-        <div class="lg:w-1/2">
-          <div class="inline-block px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-bold tracking-wide uppercase mb-6">Chef Bot Integration</div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">A Sous-Chef in your pocket.</h2>
-          <p class="text-lg text-gray-600 leading-relaxed mb-8">
-            Unsure what to buy? Or what to cook with what you bought? Our local AI Chef analyzes your list in real-time to suggest meals, ensuring no ingredient goes to waste.
-          </p>
-        </div>
-      </div>
+						<!-- Floating Badge -->
+						<div
+							class="absolute -bottom-8 -left-8 bg-white p-4 rounded-2xl shadow-xl animate-bounce duration-[3000ms]">
+							<div class="flex items-center gap-3">
+								<div
+									class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600">
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M13 10V3L4 14h7v7l9-11h-7z" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-xs text-gray-500 font-bold uppercase">
+										Instant
+									</p>
+									<p class="text-sm font-bold text-gray-900">Updates Live</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-      <!-- Feature 2 (Reversed) -->
-      <div class="flex flex-col lg:flex-row-reverse items-center gap-16 reveal-on-scroll">
-        <div class="lg:w-1/2">
-           <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 md:p-12 text-white">
-              <div class="space-y-4 opacity-90">
-                <div class="flex items-center gap-4 border-b border-white/10 pb-4">
-                   <div class="w-6 h-6 rounded border-2 border-orange-500 bg-orange-500 flex items-center justify-center">
-                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                   </div>
-                   <span class="text-xl line-through text-gray-400">Organic Avocados</span>
-                </div>
-                <div class="flex items-center gap-4 border-b border-white/10 pb-4">
-                   <div class="w-6 h-6 rounded border-2 border-gray-500"></div>
-                   <span class="text-xl">Sourdough Bread</span>
-                </div>
-                <div class="flex items-center gap-4">
-                   <div class="w-6 h-6 rounded border-2 border-gray-500"></div>
-                   <span class="text-xl">Chili Flakes</span>
-                </div>
-              </div>
-           </div>
-        </div>
-        <div class="lg:w-1/2">
-          <div class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold tracking-wide uppercase mb-6">Effortless Design</div>
-          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Beauty meets Utility.</h2>
-          <p class="text-lg text-gray-600 leading-relaxed mb-8">
-            We stripped away the clutter. No ads, no popups, no tracking. just a beautiful, fluid interface that helps you get in and out of the store faster.
-          </p>
-        </div>
-      </div>
+		<!-- Feature Strip -->
+		<div id="features" class="bg-gray-900 text-white py-24 overflow-hidden">
+			<div class="container mx-auto px-6">
+				<div
+					class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+					<div class="md:w-1/3">
+						<h3 class="text-3xl font-bold mb-4">Smart Sorting</h3>
+						<p class="text-gray-400 leading-relaxed">
+							Our local AI automatically categorizes your messy inputs. Type
+							"apples milk bread" and watch it organize by aisle.
+						</p>
+					</div>
+					<div class="md:w-1/3">
+						<h3 class="text-3xl font-bold mb-4">Chef Assistant</h3>
+						<p class="text-gray-400 leading-relaxed">
+							Stuck on dinner? Ask the built-in AI Chef for ideas and instantly
+							add ingredients to your list.
+						</p>
+					</div>
+					<div class="md:w-1/3">
+						<h3 class="text-3xl font-bold mb-4">Snapshot Share</h3>
+						<p class="text-gray-400 leading-relaxed">
+							Send a magical link to your partner. No account setup required.
+							Just share and shop.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    </div>
-  </section>
+		<!-- How it works (Horizontal Scroll) -->
+		<section id="how-it-works" class="py-24">
+			<div class="container mx-auto px-6">
+				<div class="flex flex-col md:flex-row gap-12 items-center">
+					<div class="md:w-1/2">
+						<span
+							class="text-fuchsia-600 font-bold tracking-wider uppercase text-sm"
+							>Workflow</span
+						>
+						<h2 class="text-4xl font-bold mt-2 mb-6 text-gray-900">
+							Keep shopping in sync.
+						</h2>
+						<p class="text-lg text-gray-600 mb-8">
+							We use advanced browser technologies to keep your data local and
+							secure. AI runs on your device, not a server.
+						</p>
+						<ul class="space-y-4">
+							<li class="flex items-center gap-3">
+								<div
+									class="w-6 h-6 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-sm font-bold">
+									1
+								</div>
+								<span class="text-gray-700 font-medium"
+									>Open the app (instantly loads)</span
+								>
+							</li>
+							<li class="flex items-center gap-3">
+								<div
+									class="w-6 h-6 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-sm font-bold">
+									2
+								</div>
+								<span class="text-gray-700 font-medium"
+									>Add items or ask AI for recipes</span
+								>
+							</li>
+							<li class="flex items-center gap-3">
+								<div
+									class="w-6 h-6 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center text-sm font-bold">
+									3
+								</div>
+								<span class="text-gray-700 font-medium"
+									>Share link with housemates</span
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="md:w-1/2 -mx-4 sm:-mx-6 md:mx-0">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<!-- Fast -->
+							<div
+								class="bg-orange-50 p-6 sm:p-6 rounded-xl flex items-start gap-4">
+								<span class="text-xl">⚡</span>
+								<div>
+									<p class="font-bold text-orange-900 text-base sm:text-lg">
+										Fast
+									</p>
+									<p class="text-sm sm:text-base text-orange-800/80">
+										Updates sync instantly across devices.
+									</p>
+								</div>
+							</div>
 
-  <!-- CTA Section -->
-  <section class="py-24 bg-[#fcfbf9] border-t border-gray-200">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-8">Ready to cook smarter?</h2>
-      <p class="text-xl text-gray-600 mb-10">
-        No sign-up required. Runs entirely in your browser.
-      </p>
-      <a href="app.html" class="btn-primary text-lg px-10 py-5">
-        Launch GourmetList Now
-      </a>
-    </div>
-  </section>
+							<!-- Secure -->
+							<div
+								class="bg-fuchsia-50 p-6 sm:p-6 rounded-xl flex items-start gap-4">
+								<span class="text-xl">🔒</span>
+								<div>
+									<p class="font-bold text-fuchsia-900 text-base sm:text-lg">
+										Secure
+									</p>
+									<p class="text-sm sm:text-base text-fuchsia-800/80">
+										Your data stays private and encrypted.
+									</p>
+								</div>
+							</div>
 
-  <!-- Footer -->
-  <footer class="py-12 bg-white border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-2">
-        <div class="text-orange-500 w-6 h-6">
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-        </div>
-        <span class="font-bold text-gray-900">GourmetList</span>
-      </div>
-      <p class="text-gray-500 text-sm">
-        Built by <a href="https://teda.dev" class="text-orange-600 hover:text-orange-700 font-medium">Teda.dev</a>. &copy; <span id="year"></span>
-      </p>
-    </div>
-  </footer>
+							<!-- Private -->
+							<div
+								class="bg-gray-100 p-6 sm:p-6 rounded-xl flex items-start gap-4">
+								<span class="text-xl">🕶</span>
+								<div>
+									<p class="font-bold text-gray-900 text-base sm:text-lg">
+										Private
+									</p>
+									<p class="text-sm sm:text-base text-gray-700">
+										No ads. No tracking. Ever.
+									</p>
+								</div>
+							</div>
 
-  <script>
-    // Scroll Reveal Script
-    $(window).on('scroll', function() {
-      $('.reveal-on-scroll').each(function() {
-        const elementTop = $(this).offset().top;
-        const windowHeight = $(window).height();
-        if (elementTop < $(window).scrollTop() + windowHeight - 100) {
-          $(this).addClass('active');
-        }
-      });
-    });
-    // Footer Year
-    $('#year').text(new Date().getFullYear());
-  </script>
-  <script src="scripts/helpers.js"></script>
-  <script src="scripts/ai.js"></script>
-  <script src="scripts/ui.js"></script>
-  <script src="scripts/main.js"></script>
-</body>
+							<!-- Smart -->
+							<div
+								class="bg-fuchsia-900 p-6 sm:p-6 rounded-xl flex items-start gap-4">
+								<span class="text-xl">🧠</span>
+								<div>
+									<p class="font-bold text-white text-base sm:text-lg">Smart</p>
+									<p class="text-sm sm:text-base text-fuchsia-100">
+										AI suggestions that actually help.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="py-12 bg-white border-t border-gray-100">
+			<div
+				class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+				<div class="flex items-center gap-2">
+					<div class="text-[#8c3f6d] w-6 h-6">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round">
+							<path
+								d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+						</svg>
+					</div>
+					<span class="font-bold text-gray-900">GourmetList</span>
+				</div>
+				<p class="text-gray-500 text-sm">
+					Built by
+					<a
+						href="https://teda.dev"
+						class="text-[#8c3f6d] hover:text-orange-700 font-medium"
+						>Teda.dev</a
+					>. &copy; <span id="year"></span>
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			// Scroll Reveal Script
+			$(window).on("scroll", function () {
+				$(".reveal-on-scroll").each(function () {
+					const elementTop = $(this).offset().top
+					const windowHeight = $(window).height()
+					if (elementTop < $(window).scrollTop() + windowHeight - 100) {
+						$(this).addClass("active")
+					}
+				})
+			})
+			// Footer Year
+			$("#year").text(new Date().getFullYear())
+		</script>
+		<script src="scripts/helpers.js"></script>
+		<script src="scripts/ai.js"></script>
+		<script src="scripts/ui.js"></script>
+		<script src="scripts/main.js"></script>
+	</body>
 </html>

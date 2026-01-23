@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Basket - Sign In</title>
+		<script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+		<script type="module" src="./register.js"></script>
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet" />
+		<style>
+			body {
+				font-family: "Plus Jakarta Sans", sans-serif;
+			}
+		</style>
+	</head>
+	<body class="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+		<div class="w-full max-w-md">
+			<div
+				class="bg-white shadow-xl rounded-3xl overflow-hidden border border-gray-100">
+				<div
+					class="px-6 py-8 bg-gradient-to-r from-[#8c3f6d] to-[#723258] text-white">
+					<div class="flex items-center gap-3 mb-4">
+						<div
+							class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-white font-bold">
+							<svg
+								class="w-6 h-6"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+							</svg>
+						</div>
+						<div>
+							<p class="text-sm text-fuchsia-100">Welcome back</p>
+							<h1 class="text-2xl font-bold leading-tight">
+								Sign in to Basket
+							</h1>
+						</div>
+					</div>
+					<p class="text-sm text-fuchsia-100">
+						Keep your lists synced across devices.
+					</p>
+				</div>
+				<div class="px-6 py-8 space-y-6">
+					<form id="signin-form" class="space-y-5">
+						<div class="space-y-2">
+							<label
+								for="email"
+								class="block text-sm font-semibold text-gray-700"
+								>Email</label
+							>
+							<input
+								id="email"
+								type="email"
+								required
+								placeholder="you@example.com"
+								class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 outline-none bg-gray-50"
+								autocomplete="email" />
+							<p
+								id="forgot-password-email-msg"
+								class="text-red-600 hidden text-sm mt-1"></p>
+						</div>
+						<div class="space-y-2">
+							<label
+								for="password"
+								class="block text-sm font-semibold text-gray-700"
+								>Password</label
+							>
+							<input
+								id="password"
+								type="password"
+								required
+								placeholder="••••••••"
+								class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-fuchsia-500 focus:border-fuchsia-500 outline-none bg-gray-50"
+								autocomplete="current-password" />
+							<p
+								id="password-recovery-msg"
+								class="text-green-600 hidden text-sm mt-1"></p>
+						</div>
+						<div class="flex items-center justify-between text-sm">
+							<label class="flex items-center gap-2 text-gray-600">
+								<input
+									type="checkbox"
+									class="rounded border-gray-300 text-fuchsia-600 focus:ring-fuchsia-500" />
+								Remember me
+							</label>
+							<button
+								type="button"
+								id="forgot-password-button"
+								class="text-fuchsia-600 font-semibold hover:text-fuchsia-700">
+								Forgot password?
+							</button>
+						</div>
+						<button
+							id="auth-signin-button"
+							type="submit"
+							class="w-full relative overflow-hidden bg-gradient-to-r from-[#8c3f6d] to-[#723258] text-white py-4 rounded-2xl font-extrabold shadow-2xl shadow-fuchsia-900/30 border border-white/20 hover:from-fuchsia-600 hover:via-fuchsia-700 hover:to-fuchsia-800 focus:ring-4 focus:ring-fuchsia-300 focus:ring-offset-2 focus:ring-offset-white transition-all text-lg tracking-wide flex items-center justify-center gap-2">
+							Sign In
+						</button>
+					</form>
+					<div class="relative">
+						<div class="absolute inset-0 flex items-center" aria-hidden="true">
+							<div class="w-full border-t border-gray-200"></div>
+						</div>
+						<div class="relative flex justify-center text-sm">
+							<span class="px-2 bg-white text-gray-500">or continue with</span>
+						</div>
+					</div>
+					<button
+						type="button"
+						id="google-signin-button"
+						class="w-full inline-flex items-center justify-center gap-3 border border-gray-200 rounded-xl py-3 font-semibold text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm">
+						<svg class="w-5 h-5" viewBox="0 0 533.5 544.3" aria-hidden="true">
+							<path
+								fill="#4285F4"
+								d="M533.5 278.4c0-17.4-1.5-34-4.3-50.2H272v95.1h147.5c-6.4 34.4-25.6 63.6-54.5 83.3v68h88.2c51.6-47.5 80.3-117.6 80.3-196.2z" />
+							<path
+								fill="#34A853"
+								d="M272 544.3c73.7 0 135.6-24.3 180.8-66.1l-88.2-68c-24.5 16.4-55.9 26-92.6 26-71.2 0-131.6-48-153.3-112.7H27.3v70.8C72.4 486.1 166.9 544.3 272 544.3z" />
+							<path
+								fill="#FBBC05"
+								d="M118.7 323.5c-4.6-13.7-7.2-28.3-7.2-43.5s2.6-29.8 7.2-43.5v-70.8H27.3C10 214.3 0 244.9 0 280s10 65.7 27.3 94.3l91.4-70.8z" />
+							<path
+								fill="#EA4335"
+								d="M272 107.7c40 0 75.7 13.8 103.9 40.9l77.9-77.9C407.6 24.3 345.7 0 272 0 166.9 0 72.4 58.2 27.3 149.2l91.4 70.8C140.4 155.7 200.8 107.7 272 107.7z" />
+						</svg>
+						Continue with Google
+					</button>
+					<div class="text-center text-sm text-gray-600">
+						<span>Don't have an account?</span>
+						<a
+							href="createAccount.html"
+							class="text-fuchsia-600 font-semibold hover:text-fuchsia-700"
+							>Create one</a
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="scripts/helpers.js"></script>
+		<script src="scripts/ai.js"></script>
+		<script src="scripts/ui.js"></script>
+		<script src="scripts/main.js"></script>
+	</body>
+</html>
