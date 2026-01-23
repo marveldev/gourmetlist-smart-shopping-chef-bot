@@ -5,7 +5,7 @@
   --color-sage-500: #84a98c;
   --color-sage-800: #2f3e46;
   --color-sand: #fdfcf8;
-  --color-orange: #e76f51;
+  --color-orange: #8c3f6d;
 }
 
 body {
@@ -95,7 +95,7 @@ body {
 .prose p { margin-bottom: 0.75em; }
 .prose ul { list-style-type: disc; padding-left: 1.25em; margin-bottom: 0.75em; }
 .prose ol { list-style-type: decimal; padding-left: 1.25em; margin-bottom: 0.75em; }
-.prose strong { color: var(--color-orange); font-weight: 700; }
+.prose strong { color: var(--color-primary); font-weight: 700; }
 /* Dark Theme */
 body.dark-theme {
   background-color: #0f172a;
@@ -153,3 +153,29 @@ body.dark-theme #chat-messages .bg-white {
 body.dark-theme .bg-gray-100 {
   background-color: #1e293b !important;
 }
+/* Primary Color Overrides (8c3f6d) */
+:root {
+  --color-primary: #8c3f6d;
+  --color-primary-600: #7a355f;
+  --color-primary-400: #a45b85;
+  --color-primary-100: #f4e6f0;
+  --color-primary-50: #faf3f8;
+}
+
+.bg-orange-50 { background-color: var(--color-primary-50) !important; }
+.bg-orange-100 { background-color: var(--color-primary-100) !important; }
+.bg-orange-400 { background-color: var(--color-primary-400) !important; }
+.bg-orange-500 { background-color: var(--color-primary) !important; }
+.bg-orange-600 { background-color: var(--color-primary-600) !important; }
+.hover\:bg-orange-600:hover { background-color: var(--color-primary-600) !important; }
+.text-orange-400 { color: var(--color-primary-400) !important; }
+.text-orange-500 { color: var(--color-primary) !important; }
+.text-orange-600 { color: var(--color-primary-600) !important; }
+.text-orange-700 { color: #67294f !important; }
+.text-orange-900 { color: #4d1f3c !important; }
+.border-orange-200 { border-color: #ebd3e1 !important; }
+.border-orange-500 { border-color: var(--color-primary) !important; }
+.focus\:ring-orange-500:focus { --tw-ring-color: var(--color-primary) !important; }
+.focus\:border-orange-500:focus { border-color: var(--color-primary) !important; }
+.from-orange-500 { --tw-gradient-from: var(--color-primary) var(--tw-gradient-from-position); --tw-gradient-to: rgb(140 63 109 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-red-500 { --tw-gradient-to: var(--color-primary-400) var(--tw-gradient-to-position); }
