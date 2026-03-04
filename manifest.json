@@ -1,0 +1,17 @@
+{
+  "name": "GourmetList",
+  "short_name": "GourmetList",
+  "description": "Smart Shopping & Chef Bot. Keep your lists organized and ask the AI Chef for recipes.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fcfbf9",
+  "theme_color": "#8c3f6d",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
